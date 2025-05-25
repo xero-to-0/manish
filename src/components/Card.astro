@@ -1,0 +1,120 @@
+---
+import Anchor from "./Anchor.astro";
+import Image from "./Image.astro";
+
+import { slug as slugger } from "../utils/slug";
+
+const { href, img = {}, external, showTitle, name } = Astro.props;
+const slug = slugger(name, { lower: true });
+---
+
+<div class={`card` + (showTitle ? " show-title" : "")}>
+  <Anchor {href} {external} class={`umami--mouseover--${slug} umami--click--${slug}`}>
+    {(!img.blank && <Image {...img} />) || (
+      <div class="w-full h-[350px] bg-primary/20" {...img} />
+    )}
+    <div class="card-overlay">
+      <div class="overlay-blur"></div>
+    </div>
+    <div class="card-content">
+      <slot />
+    </div>
+  </Anchor>
+</div>
+
+<style lang="scss">
+  .card {
+    @apply focus-within:ring-2 hover:ring-2 ring-white ring-offset-4 ring-offset-black;
+
+    @at-root :global(.dom-loaded) .card {
+      @apply transition-shadow duration-300;
+    }
+
+    &,
+    a {
+      @apply block relative;
+      @apply overflow-hidden rounded-lg;
+    }
+
+    a {
+      @apply whitespace-normal;
+
+      & > [data-icon] {
+        @apply hidden;
+      }
+
+      &:hover,
+      &:focus {
+        :global(p) {
+          @apply text-primary;
+        }
+      }
+
+      &:active {
+        @apply scale-100;
+      }
+    }
+
+    &-overlay {
+      @apply absolute inset-0 bg-gray-900/0;
+
+      .overlay-blur {
+        @apply absolute inset-0 bg-black/20 coarse:bg-[color:rgb(4_23_78/20%)] backdrop-blur-lg coarse:backdrop-blur-sm;
+        @apply fine:opacity-0;
+
+        @at-root :global(.dom-loaded) .card .overlay-blur {
+            @apply transition-opacity duration-300;
+        }
+      }
+    }
+
+    &:hover .overlay-blur {
+      @apply opacity-100;
+    }
+
+    & :global(figure) {
+      @apply my-0;
+    }
+
+    &-content {
+      @apply absolute bottom-0 left-0 z-10;
+      @apply p-6;
+      @apply lt-xsm:text-base lt-sm:leading-snug;
+
+      @apply fine:translate-y-full;
+
+      @at-root :global(.dom-loaded) .card .card-content {
+        @apply transition-transform duration-500;
+      }
+
+      :global(p) {
+        @apply my-0;
+      }
+    }
+
+    &:hover .card-content {
+      @apply translate-y-0;
+    }
+  }
+
+  .card :global(.card-title) {
+    @apply fine:translate-y-[-320%];
+    text-decoration: 2px solid underline;
+    text-decoration-color: transparent;
+    text-decoration-style: wavy;
+
+    @at-root :global(.dom-loaded) .card :global(.card-title) {
+      @apply transition duration-500;
+      /* transition-property: box-shadow, transform, opacity; */
+    }
+  }
+  
+  .card:not(.show-title) :global(.card-title) {
+    // @apply fine:opacity-0;
+  }
+
+  .card a:hover :global(.card-title) {
+    @apply translate-y-0 opacity-100 cursor-pointer;
+    text-decoration-color: theme("colors.primary");
+  }
+</style>

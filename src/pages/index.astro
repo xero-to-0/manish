@@ -1,0 +1,317 @@
+---
+import HomepageLayout from "../layouts/HomepageLayout.astro";
+import HeroBanner from "../components/HeroBanner.astro";
+import MethodBlock from "../components/MethodBlock.astro";
+import Card from "../components/Card.astro";
+import Anchor from "../components/Anchor.astro";
+
+import { slug as slugger } from "@/utils/slug";
+
+// Data Fetching: List all Markdown posts in the repo.
+// const projects = Astro.fetchContent("./project/**/*.md");
+// const featuredProject = projects[0];
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+export const prerender = true;
+---
+
+<HomepageLayout>
+  <HeroBanner slot="hero" />
+
+  <section nav-section="about">
+    <div class="content">
+      <p>
+  Hi, I’m <strong>Manish Jangid</strong> — a Computer Science student and passionate <strong>Web & UI/UX Designer</strong>. I create clean, user-friendly designs that blend creativity with function. Whether it’s websites, visuals, or interfaces, I love turning ideas into engaging digital experiences.
+</p>
+
+      <p>
+       Hi, I’m Manish Jangid — a Computer Science student and passionate Web & UI/UX Designer. I create clean, user-friendly designs that blend creativity with function. Whether it’s websites, visuals, or interfaces, I love turning ideas into engaging digital experiences.
+
+
+
+        <br />
+        <br />
+
+        I have a passion for design and development, I'm driven to create things
+        that function with a shine you can't resist. I'm always eager to take on a challenge, and aim to exceed in all tasks I
+        take on. My philosophy is simple sophistication, solving complex problems with simple, efficient, and effective solutions that are sustainable, maintainable, and evolve.
+      </p>
+    </div>
+
+    <div class="content">
+      <h3 class="nav-item" id="experience">Experience</h3>
+       <p>
+  Working with diverse companies has taught me the value of real-world collaboration, design systems, and scalable user interfaces. During my journey, I contributed to projects at <Anchor href="https://www.medhiniworld.com">Medhini World Pvt. Ltd.</Anchor>, where I helped build impactful web solutions for global agricultural exports. At <Anchor href="https://rachanakriti.com/">Rachanakriti</Anchor>, I focused on creating immersive visual content that aligned with modern design aesthetics. I also collaborated with <Anchor href="https://manas.works/">Manas Works</Anchor> to enhance their brand presence with refined UI/UX solutions. These experiences not only shaped my technical skillset but also improved my understanding of design communication and client-centric development.
+</p>
+
+    </div>
+
+    <div class="content">
+      <h3 class="nav-item" id="skills">Skills</h3>
+<p>
+  Throughout my journey as a designer and developer, I’ve honed a versatile set of skills that blend creativity with functionality. My technical toolkit includes HTML5, CSS3, JavaScript, and WordPress for web development, along with basic experience in PHP and React.js. On the design side, I work fluently with Figma, Adobe Illustrator, InDesign, CorelDRAW, and Canva to craft engaging visual content and user interfaces. Beyond the screen, I value teamwork, clear communication, and strong project coordination—skills that have helped me collaborate with clients and deliver projects on time. I prefer to learn tools and techniques as needed, keeping my focus on solving real problems and creating meaningful digital experiences.
+</p>
+
+    </div>
+
+    <div class="content">
+      <h3 id="method">Method</h3>
+      <p>
+        When developing projects and solutions I first aim to understand the needs and goals of
+        the project, I then determine the best approach to build a solution and what type of solution. There
+        are four parts to my method, speed, efficiency, ease-of-use, and impact.
+      </p>
+    </div>
+
+    <div class="py-6">
+      <MethodBlock />
+    </div>
+  </section>
+
+{/*
+ <section nav-section="projects"> 
+  <div class="content">
+    <h2 id="projects">Featured Projects.</h2>
+  </div>
+  <div class="container px-5 max-w-[105ch]">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+    {() => {
+      let externalIcon = `<svg viewBox="0 0 24 24" class="astro-6H36LA55 inline-block w-[1em] h-[1em]" data-icon="fluent:arrow-up-right-24-filled"><path fill="yellow" d="M11 3a1 1 0 1 0 0 2h6.586L3.293 19.293a1 1 0 1 0 1.414 1.414L19 6.414V13a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-9z"></path></svg>`;
+      let projects = {
+      bundlejs: {
+        image: {
+        src: "cloudinary/Manish/bundlejs.netlify.app_",
+        alt: "The banner for 'bundlejs.com'. It has a blue box with the letter 'b' inside it, the blue box is the logo, offset by a bit, with the text 'bundlejs' in the center.",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "An online tool to quickly and easily bundle, minify, and compress your ts, js, jsx and npm projects, while viewing the file size of the final bundle.",
+        link: "https://bundlejs.com",
+      },
+
+      inthistweet: {
+        image: {
+        src: "cloudinary/Manish/inthistweet.app_",
+        alt: "The banner for 'inthistweet.app'. It has the In This Tweet logo offset left by a small amount, with the text 'inthistweet.app' in the center.",
+        width: "450",
+        height: "350",
+        },
+        description: "✨ Futuristic ✨ twitter image, gif and video downloader. Enter a Tweet URL, click search, and download the image/videos in it.",
+        link: "https://inthistweet.app",
+      },
+
+      jabodent: {
+        image: {
+        src: "cloudinary/Manish/jabodent.com_",
+        alt: "The banner for 'jabodent.com'. It has the Jabodent logo offset left by a small amount, with the text 'Jabodent' in the center.",
+        width: "450",
+        height: "350",
+        },
+        description: "The website for Jabodent Offshore Consultants.",
+        link: "https://jabodent.com",
+      },
+
+      reindeere: {
+        image: {
+        src: "cloudinary/Manish/reindeere.ca_",
+        alt: "The banner for 'reindeere.ca'. It has a cartoonified image of a reindeer offset left by a small amount, with the text 'Reindeere' in the center (note, in the banner reindeere has an extra 'e' on the end).",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "The website for a startup focused on local delivery using robots.",
+        link: "https://reindeere.ca",
+      },
+
+      joesphojo: {
+        image: {
+        src: "cloudinary/Manish/josephojo.com_",
+        alt: "The banner for 'josephojo.com'. It has an image of Joseph Ojo, smiling staring straight forward. He is wearing a dark gray suit with glasses.",
+        width: "450",
+        height: "350",
+        },
+        description: "An engineering portfolio site for a Joseph Ojo.",
+        link: "https://josephojo.com/",
+      },
+
+      transferables: {
+        image: {
+        src: "cloudinary/Manish/transferables",
+        alt: "The banner for 'transferables'. It has the text 'transferables' in the center, with 'transfer' being blue, the rest of the text being white and the background being black.",
+        width: "450",
+        height: "350",
+        },
+        description: "Utility library that lists out all transferable objects that can be transfered between Workers and the main thread",
+        link: "https://github.com/xero-to-0/transferables",
+      },
+
+      "spring-easing": {
+        image: {
+        src: "cloudinary/Manish/spring-easing",
+        alt: "The banner for 'spring-easing'. It just has the text 'spring-easing' in the center, with a blue dash separating the words 'spring' and 'easing', the rest of the text being white and the background being black.",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "Quick and easy spring animation. Works with other animation libraries (gsap, animejs, framer motion, motion one, @Manish/animate, etc...) or the Web Animation API (WAAPI).",
+        link: "https://spring-easing.Manish.dev",
+      },
+
+      "@Manish/animate": {
+        image: {
+        src: "cloudinary/Manish/animate",
+        alt: "The banner for '@Manish/animate'. It just has the text '@Manish/animate' in the center, with '@' being blue, the rest of the text being white and the background being black.",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "An animation library that utilizes the Web Animation API (WAAPI) to deliver fluid animations at a semi-small size.",
+        link: "https://native.Manish.dev/animate",
+      },
+
+      "@Manish/native": {
+        image: {
+        src: "cloudinary/Manish/native",
+        alt: "The banner for '@Manish/native'. It just has the text '@Manish/native' in the center, with '@' being blue, the rest of the text being white and the background being black.",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "A js framework for creating coordinated web experience through composable services.",
+        link: "https://native.Manish.dev/native",
+      },
+
+      "@Manish/sharedworker": {
+        image: {
+        src: "cloudinary/Manish/sharedworker",
+        alt: "The banner for '@Manish/sharedworker'. It just has the text '@Manish/sharedworker' in the center, with '@' being blue, the rest of the text being white and the background being black.",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "A small mostly spec. compliant polyfill/ponyfill for SharedWorkers, it acts as a drop in replacement for normal Workers.",
+        link: "https://sharedworker.Manish.dev",
+      },
+
+      "Codepen Projects": {
+        image: {
+        src: "cloudinary/Manish/Codepen",
+        alt: "A banner for 'Codepen'. It has the Codepen logo offset left by a small amount, with the text 'Codepen' in the center. The text is white and the background is black.",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "A set of small snippets, mini-projects and experiments, that I created on Codepen.",
+        link: "https://codepen.com/Manish",
+      },
+
+      "Legacy Projects": {
+        image: {
+        src: "cloudinary/Manish/Khanacademy",
+        alt: "A banner for 'Khan Academy'. It has the Khan Academy logo offset left by a small amount, with the text 'Khan Academy' in the center. The text is white and the background is black. The logo is a green hexagon with a black cartoonified leaf.",
+        width: "450",
+        height: "350",
+        },
+        description:
+        "When I first started out programming these are the projects I worked on before I got OSS work. Back then I used to use 'whitelight' as my username, 🤣.",
+        link: "https://www.khanacademy.org/profile/liteo/projects",
+      },
+
+      ["More... " + externalIcon]: {
+        showTitle: true,
+        image: {
+        width: "450",
+        height: "350",
+        blank: true,
+        },
+        description: "Check out more Projects on GitHub.",
+        link: "https://github.com/xero-to-0",
+      },
+      };
+
+      return Object.keys(projects).map((name) => {
+      let { description, link, image, showTitle } = projects[name];
+      return (
+        <Card img={
+        Object.assign({
+          loading: "lazy",
+          fetchpriority: "low"
+        }, image)
+        } href={link} {showTitle} external={false} name={name}>
+        <h3 class="card-title" set:html={name} />
+        <p class="card-description">{description}</p>
+        </Card>
+      );
+      });
+    }}
+    </div>
+  </div>
+  </section> 
+*/}
+
+  <section nav-section="contact" class="py-12">
+    <div class="content text-center">
+      <h2 id="contact">Contact.</h2>
+    </div>
+    <div class="container px-3 sm:px-5 max-w-[85ch]">
+      <div
+        class="flex flex-col gap-2 xsm:grid lt-sm:grid-cols-2 sm:grid-cols-4 sm:gap-6 justify-center overflow-x-auto"
+      >
+        {() => {
+          let links = {
+            LinkedIn: "https://www.linkedin.com/in/manish-jangid-/",
+            GitHub: "https://github.com/xero-to-0",
+            Email: "mailto:manishjangid1003@gmail.com",
+            Instagram: "https://www.instagram.com/adobemanish?igsh=MWxmOWN2ZXppb2U5cw==",
+          };
+
+          return Object.keys(links).map((name) => {
+            let href = links[name as keyof typeof links];
+            return (
+              <Anchor
+                class={`px-4 py-2 hover:text-primary hover:bg-primary/30 focus:bg-primary/20 umami--click--${slugger(name, { lower: false })}-contact`}
+                href={href}
+              >
+                {name}
+              </Anchor>
+            );
+          });
+        }}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style lang="scss">
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-0;
+  }
+
+  h1,
+  h2 {
+    @apply text-primary font-lexend font-[700];
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-manrope font-[400];
+  }
+
+  p {
+    @apply lt-xsm:text-base lt-xsm:leading-relaxed;
+  }
+</style>
+
+<script>
+  import "../scripts/index.ts";
+</script> 

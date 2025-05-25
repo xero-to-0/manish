@@ -1,0 +1,12 @@
+/* DEVELOPMENT */
+  Okiki Ojo: Development, Design, Concept, Research, Art Direction, SEO
+  Contact: hey@okikio.dev
+  Site: https://okikio.dev
+  Twitter: @okikio_dev
+  From: Ontario, Canada
+
+/* SITE */
+  Last update: 2022/09/03
+  Language: English
+  Technologies: vite, astro, scss/sass, cloudinary, typescript
+  IDE: VS Code
